@@ -1,1 +1,20 @@
 #This is a Jenkins file
+# I am creating a pipeline 
+# 
+# pipleline 
+#   agents 
+#      stages : 
+#
+# This defines my CI/CD pipeline
+pipeline {
+ agent any
+ stages  {
+     stage ('Build') {
+	steps {
+           echo ' 11-Running build automation' 
+	   sh './gradlew build --no-daemon'
+	   archiveArtifacts artifacts: 'dist/trainSchedule.zip'
+	}
+     }
+  }
+}
